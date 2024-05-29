@@ -17,7 +17,7 @@ export default function ParallaxImage({ img, offset }: ImageComponentProps) {
       width={pos.width * 10}
       height={pos.width * 10}
       style={{
-        position: 'absolute',
+        position: pos.fixed ? 'fixed' : 'absolute',
         transform: `
         translate(${img === 'Spaceship' ? `${movement}px` : 0}, ${movement}px)
         ${pos.rotate ? `rotate(${(pos.rotate * movement) / 10}deg)` : ''}`,

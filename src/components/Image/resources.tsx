@@ -16,6 +16,7 @@ export type ImagePosition = {
   bottom?: number;
   rotate?: number;
   zIndex?: number;
+  fixed?: boolean;
 };
 
 export const ImgData: Record<ImageType, ImagePosition> = {
@@ -24,8 +25,9 @@ export const ImgData: Record<ImageType, ImagePosition> = {
     width: 45,
     right: 0,
     bottom: 0,
-    movement: 1,
-    zIndex: 1
+    movement: 0,
+    zIndex: 1,
+    fixed: true
   },
   Earth: {
     src: '/images/earth.png',

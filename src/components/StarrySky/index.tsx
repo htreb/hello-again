@@ -25,12 +25,12 @@ export default function StarrySky({ n, maxSize }: StarrySkyProps) {
           key={i}
           style={{
             position: 'absolute',
+            top: `${star[0]}%`,
+            left: `${star[1]}%`,
             width: star[2],
             height: star[2],
             backgroundColor: 'white',
-            borderRadius: '50%',
-            top: `${star[0]}%`,
-            left: `${star[1]}%`
+            borderRadius: '50%'
           }}
         />
       ))}
