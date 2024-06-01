@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* styles/globals.css */
+@font-face {
+  font-family: 'Antonio';
+  src: url('/fonts/Antonio.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 0, 0, 0;
@@ -9,6 +17,7 @@
 }
 
 body {
+  font-family: 'Antonio', sans-serif;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -17,4 +26,3 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
-

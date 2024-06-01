@@ -6,10 +6,10 @@ export type ImageType =
   | 'Planet'
   | 'Alien';
 
-export type ImagePosition = {
-  src: string;
+export type ParallaxPosition = {
+  moveY: number;
   width: number;
-  movement: number;
+  moveX?: number;
   top?: number;
   left?: number;
   right?: number;
@@ -19,13 +19,13 @@ export type ImagePosition = {
   fixed?: boolean;
 };
 
-export const ImgData: Record<ImageType, ImagePosition> = {
+export const ImgData: Record<ImageType, { src: string } & ParallaxPosition> = {
   Astronaut: {
     src: '/images/astronaut.png',
     width: 45,
     right: 0,
     bottom: 0,
-    movement: 0,
+    moveY: 0,
     zIndex: 1,
     fixed: true
   },
@@ -34,15 +34,15 @@ export const ImgData: Record<ImageType, ImagePosition> = {
     width: 40,
     right: 15,
     top: 50,
-    movement: 0.7
+    moveY: 0.7
   },
   Moon: {
     src: '/images/moon.png',
     width: 10,
     left: 25,
     top: 30,
-    movement: 0.7,
-    rotate: 1,
+    moveY: 0.7,
+    rotate: 0.1,
     zIndex: -1
   },
   Spaceship: {
@@ -50,23 +50,24 @@ export const ImgData: Record<ImageType, ImagePosition> = {
     width: 8,
     bottom: 30,
     left: 20,
-    movement: 0.5,
-    rotate: 1
+    moveX: 0.2,
+    moveY: 0.7,
+    rotate: 0.1
   },
   Planet: {
     src: '/images/planet.png',
     width: 10,
     left: 6,
     top: 10,
-    movement: 0.8,
-    rotate: 0.5
+    moveY: 0.8,
+    rotate: 0.05
   },
   Alien: {
     src: '/images/alien.png',
     width: 6,
     left: 15,
     bottom: -20,
-    movement: 0.4,
-    rotate: 6
+    moveY: 0.4,
+    rotate: 0.6
   }
 };

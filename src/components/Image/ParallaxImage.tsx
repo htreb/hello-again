@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { ImageType, ImgData } from '@/components/Image/resources';
+import { getParallaxPosition } from './utils';
 
 export type ImageComponentProps = {
   img: ImageType;
@@ -8,7 +9,6 @@ export type ImageComponentProps = {
 
 export default function ParallaxImage({ img, offset }: ImageComponentProps) {
   const pos = ImgData[img];
-  const movement = pos.movement * offset;
 
   return (
     <Image
@@ -16,18 +16,7 @@ export default function ParallaxImage({ img, offset }: ImageComponentProps) {
       alt={img}
       width={pos.width * 10}
       height={pos.width * 10}
-      style={{
-        position: pos.fixed ? 'fixed' : 'absolute',
-        transform: `
-        translate(${img === 'Spaceship' ? `${movement}px` : 0}, ${movement}px)
-        ${pos.rotate ? `rotate(${(pos.rotate * movement) / 10}deg)` : ''}`,
-        width: `${pos.width}%`,
-        top: pos.top !== undefined ? `${pos.top}%` : '',
-        right: pos.right !== undefined ? `${pos.right}%` : '',
-        bottom: pos.bottom !== undefined ? `${pos.bottom}%` : '',
-        left: pos.left !== undefined ? `${pos.left}%` : '',
-        zIndex: pos.zIndex
-      }}
+      style={getParallaxPosition(ImgData[img], offset)}
     />
   );
 }

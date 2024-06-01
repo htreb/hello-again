@@ -6,7 +6,7 @@ import { ImageType } from '@/components/Image/resources';
 import StarrySky from '../StarrySky';
 
 export default function SpaceScene() {
-  const [offset, setOffset] = useState(window.scrollY);
+  const [offset, setOffset] = useState(0);
 
   const imageItems: ImageType[] = useMemo(
     () => ['Moon', 'Spaceship', 'Planet', 'Alien', 'Earth', 'Astronaut'],
@@ -14,10 +14,19 @@ export default function SpaceScene() {
   );
 
   useEffect(() => {
-    const handleScroll = () => {
-      setOffset(window.scrollY);
-    };
-    handleScroll(); // Force an initial update
+    // Prevent default scroll restoration
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
+    const handleScroll = () => setOffset(window.scrollY);
+
+    // Force the page to load at the top after all effects and DOM updates
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+      handleScroll(); // Force an initial update
+    }, 0);
+
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -29,10 +38,10 @@ export default function SpaceScene() {
       className='w-full relative overflow-hidden'
       style={{ height: '200vh' }}
     >
-      <StarrySky n={100} maxSize={6} />
+      <StarrySky n={100} maxSize={6} offset={offset} />
       <div className='h-screen w-screen relative flex items-center justify-center'>
         <div
-          className='text-8xl text-center'
+          className='text-9xl text-center'
           style={{ textShadow: '1px 1px 3px black' }}
         >
           HELLO AGAIN
