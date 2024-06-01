@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getParallaxPosition } from '../Image/utils';
+import { getParallaxPosition } from '@/app/utils';
 
 type Star = { top: number; left: number; size: number };
 

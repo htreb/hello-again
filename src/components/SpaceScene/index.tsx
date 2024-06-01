@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import ParallaxImage from '@/components/Image/ParallaxImage';
 import { ImageType } from '@/components/Image/resources';
-import StarrySky from '../StarrySky';
+import StarrySky from '@/components/StarrySky';
 
 export default function SpaceScene() {
   const [offset, setOffset] = useState(0);
@@ -21,15 +21,17 @@ export default function SpaceScene() {
 
     const handleScroll = () => setOffset(window.scrollY);
 
+    const onScroll = () => requestAnimationFrame(handleScroll);
+
     // Force the page to load at the top after all effects and DOM updates
     setTimeout(() => {
       window.scrollTo(0, 0);
       handleScroll(); // Force an initial update
     }, 0);
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', onScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', onScroll);
     };
   }, []);
 

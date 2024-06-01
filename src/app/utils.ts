@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react';
-import { ParallaxPosition } from './resources';
+import { ParallaxPosition } from '../components/Image/resources';
 
 export function getParallaxPosition(
   pos: ParallaxPosition,
@@ -18,6 +18,6 @@ export function getParallaxPosition(
     bottom: pos.bottom !== undefined ? `${pos.bottom}%` : '',
     left: pos.left !== undefined ? `${pos.left}%` : '',
     zIndex: pos.zIndex,
-    transition: 'transform 0.05s ease'
+    transition: 'transform 0.1s ease-out'
   };
 }
