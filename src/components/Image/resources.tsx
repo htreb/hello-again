@@ -36,7 +36,7 @@ export const ImgDataDesktop: Record<ImageType, ImageData> = {
     width: 40,
     right: 15,
     top: 50,
-    moveY: 0.7
+    moveY: 0.5
   },
   Moon: {
     src: '/images/moon.png',
@@ -89,14 +89,14 @@ export const ImgDataMobile: Record<ImageType, ImageData> = {
     width: 40,
     right: 15,
     top: 60,
-    moveY: 0.7
+    moveY: 0.5
   },
   Moon: {
     src: '/images/moon.png',
     width: 30,
     left: 25,
     top: 30,
-    moveY: 0.7,
+    moveY: 0.4,
     rotate: 0.1,
     zIndex: -1
   },
@@ -123,6 +123,6 @@ export const ImgDataMobile: Record<ImageType, ImageData> = {
     left: 15,
     bottom: -20,
     moveY: 0.4,
-    rotate: 0.6
+    rotate: 0.3
   }
 };
