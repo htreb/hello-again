@@ -8,7 +8,6 @@ import {
   ImgDataDesktop
 } from '@/components/Image/resources';
 import StarrySky from '@/components/StarrySky';
-import { getParallaxPosition } from '@/app/utils';
 
 export default function SpaceScene() {
   const [offset, setOffset] = useState(0);

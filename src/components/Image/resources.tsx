@@ -50,11 +50,11 @@ export const ImgDataDesktop: Record<ImageType, ImageData> = {
   Spaceship: {
     src: '/images/spaceship.png',
     width: 8,
-    bottom: 30,
+    top: 54,
     left: 20,
-    moveX: 0.2,
+    moveX: 0.6,
     moveY: 0.7,
-    rotate: 0.1
+    rotate: 0.05
   },
   Planet: {
     src: '/images/planet.png',
@@ -103,11 +103,11 @@ export const ImgDataMobile: Record<ImageType, ImageData> = {
   Spaceship: {
     src: '/images/spaceship.png',
     width: 10,
-    bottom: 30,
-    left: 20,
-    moveX: 0.2,
+    top: 55,
+    left: 18,
+    moveX: 0.4,
     moveY: 0.7,
-    rotate: 0.1
+    rotate: 0.05
   },
   Planet: {
     src: '/images/planet.png',
