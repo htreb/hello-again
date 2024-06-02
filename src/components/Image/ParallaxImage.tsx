@@ -1,20 +1,25 @@
 import Image from 'next/image';
-import { ImageType, ImgData } from '@/components/Image/resources';
+import { ImageData } from '@/components/Image/resources';
 import { getParallaxPosition } from '@/app/utils';
 
 export type ImageComponentProps = {
-  img: ImageType;
+  imageData: ImageData;
+  alt: string;
   offset: number;
 };
 
-export default function ParallaxImage({ img, offset }: ImageComponentProps) {
+export default function ParallaxImage({
+  imageData,
+  alt,
+  offset
+}: ImageComponentProps) {
   return (
     <Image
-      src={ImgData[img].src}
-      alt={img}
+      src={imageData.src}
+      alt={alt}
       width={500}
       height={500}
-      style={getParallaxPosition(ImgData[img], offset)}
+      style={getParallaxPosition(imageData, offset)}
     />
   );
 }

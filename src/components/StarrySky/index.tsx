@@ -25,7 +25,10 @@ export default function StarrySky({ n, maxSize, offset }: StarrySkyProps) {
   return (
     <div
       className='h-full w-full absolute'
-      style={getParallaxPosition({ width: 100, moveY: 0.4 }, offset)}
+      style={getParallaxPosition(
+        { width: 100, moveY: 0.4, zIndex: -2 },
+        offset
+      )}
     >
       {stars.map(({ top, left, size }, i) => (
         <div
