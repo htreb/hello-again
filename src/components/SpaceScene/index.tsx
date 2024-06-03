@@ -12,6 +12,7 @@ import StarrySky from '@/components/StarrySky';
 export default function SpaceScene() {
   const [offset, setOffset] = useState(0);
   const [imageData, setImageData] = useState(ImgDataMobile);
+  const [hasLoaded, setHasLoaded] = useState(false);
 
   const imageItems: ImageType[] = useMemo(
     () => ['Moon', 'Spaceship', 'Planet', 'Alien', 'Earth', 'Astronaut'],
@@ -23,8 +24,9 @@ export default function SpaceScene() {
       window.innerWidth <= 550 ? ImgDataMobile : ImgDataDesktop;
     const handleResize = () => setImageData(getImageData());
     handleResize();
-
     window.addEventListener('resize', handleResize);
+
+    setTimeout(() => setHasLoaded(true), 0);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
@@ -52,9 +54,9 @@ export default function SpaceScene() {
   return (
     <section
       className='w-full relative overflow-hidden'
-      style={{ height: '200vh' }}
+      style={{ height: '250vh' }}
     >
-      <StarrySky n={100} maxSize={6} offset={offset} />
+      <StarrySky offset={offset} />
       <div className='h-screen w-screen relative flex items-center justify-center'>
         <div
           className='text-9xl text-center'
@@ -76,7 +78,12 @@ export default function SpaceScene() {
           );
         })}
       </div>
-      <div className='h-20 w-full absolute bottom-0 bg-gradient-to-t from-black to-transparent' />
+
+      <div
+        className={`fixed inset-0 bg-black transition-opacity duration-1000 ${
+          hasLoaded ? 'opacity-0' : ' opacity-100'
+        }`}
+      />
     </section>
   );
 }

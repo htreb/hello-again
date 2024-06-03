@@ -4,12 +4,16 @@ import { getParallaxPosition } from '@/app/utils';
 type Star = { top: number; left: number; size: number };
 
 interface StarrySkyProps {
-  n: number;
-  maxSize: number;
   offset: number;
+  n?: number;
+  maxSize?: number;
 }
 
-export default function StarrySky({ n, maxSize, offset }: StarrySkyProps) {
+export default function StarrySky({
+  n = 100,
+  maxSize = 6,
+  offset
+}: StarrySkyProps) {
   const [stars, setStars] = useState<Star[]>([]);
 
   useEffect(() => {

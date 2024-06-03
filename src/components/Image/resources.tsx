@@ -28,7 +28,6 @@ export const ImgDataDesktop: Record<ImageType, ImageData> = {
     right: 0,
     bottom: 0,
     moveY: 0,
-    zIndex: 1,
     fixed: true
   },
   Earth: {
@@ -81,7 +80,6 @@ export const ImgDataMobile: Record<ImageType, ImageData> = {
     right: 0,
     bottom: 0,
     moveY: 0,
-    zIndex: 1,
     fixed: true
   },
   Earth: {

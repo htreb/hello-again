@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { ImageData } from '@/components/Image/resources';
 import { getParallaxPosition } from '@/app/utils';
 
@@ -14,7 +13,7 @@ export default function ParallaxImage({
   offset
 }: ImageComponentProps) {
   return (
-    <Image
+    <img
       src={imageData.src}
       alt={alt}
       width={500}

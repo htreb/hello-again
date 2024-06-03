@@ -11,13 +11,12 @@ export function getParallaxPosition(
 
   return {
     position: pos.fixed ? 'fixed' : 'absolute',
-    transform: `translate(${deltaX}px, ${deltaY}px) rotate(${deltaRotate}deg)`,
+    transform: `translate3d(${deltaX}px, ${deltaY}px, 0) rotate(${deltaRotate}deg)`,
     width: `${pos.width}%`,
     top: pos.top !== undefined ? `${pos.top}%` : '',
     right: pos.right !== undefined ? `${pos.right}%` : '',
     bottom: pos.bottom !== undefined ? `${pos.bottom}%` : '',
     left: pos.left !== undefined ? `${pos.left}%` : '',
-    zIndex: pos.zIndex,
-    transition: 'transform 0.1s ease-out'
+    zIndex: pos.zIndex
   };
 }
